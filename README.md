@@ -89,7 +89,7 @@ List all donations
 
 Add new movie
 
-    near call $CONTRACT addMovie '{"title":"Moonfal","poster_path":"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/odVv1sqVs0KxBXiA8bhIBlPgalx.jpg","overview":"A mysterious force knocks the moon from its orbit around Earth and sends it hurtling on a collision course with life as we know it."}'
+    near call $CONTRACT addMovie '{"title":"Moonfall","poster_path":"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/odVv1sqVs0KxBXiA8bhIBlPgalx.jpg","overview":"A mysterious force knocks the moon from its orbit around Earth and sends it hurtling on a collision course with life as we know it."}'
     
 Donate to a movie
 
