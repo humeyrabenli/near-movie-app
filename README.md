@@ -1,4 +1,4 @@
-movieappnear
+Near Movie App
 ==================
 
 This [React] app was initialized with [create-near-app]
@@ -72,8 +72,31 @@ Modify the line in `src/config.js` that sets the account name of the contract. S
 
     const CONTRACT_NAME = process.env.CONTRACT_NAME || 'movieappnear.YOUR-NAME.testnet'
 
+Step 3: contract functions
+--------------------------
 
-Step 3: deploy!
+List all movies
+
+    near view $CONTRACT getAllMovies
+    
+Get movie details by movie id
+
+    near view $CONTRACT getMovieById '{"id":3297777269}'
+
+List all donations
+
+    near view $CONTRACT getAllDonations
+
+Add new movie
+
+    near call $CONTRACT addMovie '{"title":"Moonfal","poster_path":"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/odVv1sqVs0KxBXiA8bhIBlPgalx.jpg","overview":"A mysterious force knocks the moon from its orbit around Earth and sends it hurtling on a collision course with life as we know it."}'
+    
+Create donation
+
+    near call $CONTRACT donateMovie '{"id":3297777269}' --deposit 0.011
+
+
+Step 4: deploy!
 ---------------
 
 One command:
