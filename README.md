@@ -93,7 +93,7 @@ Add new movie
     
 Donate to a movie
 
-    near call $CONTRACT donateMovie '{"id":3297777269}' --deposit 0.011
+    near call $CONTRACT donateMovie '{"id":3297777269}' --accountId <accountID> --deposit 0.011
 
 
 Step 4: deploy!
