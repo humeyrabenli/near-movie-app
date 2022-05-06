@@ -69876,9 +69876,9 @@ function App() {
     className: "me-auto"
   }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Nav.Link, {
     href: "/NewMovie"
-  }, "Add Movie"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Nav.Link, {
+  }, window.accountId === "" ? "" : "Add Movie"), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Nav.Link, {
     onClick: window.accountId === "" ? _utils.login : _utils.logout
-  }, window.accountId === "" ? "Login" : window.accountId))))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Routes, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, window.accountId === "" ? "Login" : "Logout"))))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Routes, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/",
     element: /*#__PURE__*/_react.default.createElement("div", {
@@ -69936,7 +69936,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60005" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51890" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

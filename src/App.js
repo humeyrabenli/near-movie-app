@@ -21,9 +21,9 @@ export default function App() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mx-auto"></Nav>
               <Nav className="me-auto">
-                <Nav.Link href="/NewMovie">Add Movie</Nav.Link>
+                <Nav.Link href="/NewMovie">{window.accountId === "" ? "" : "Add Movie"}</Nav.Link>
                 <Nav.Link onClick={window.accountId === "" ? login : logout}>
-                  {window.accountId === "" ? "Login" : window.accountId}
+                  {window.accountId === "" ? "Login" : "Logout"}
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
