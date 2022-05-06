@@ -1,6 +1,8 @@
 Near Movie App
 ==================
 
+A web app project where a user can add movies and donate by Near tokens.
+
 This [React] app was initialized with [create-near-app]
 
 
