@@ -1,6 +1,5 @@
 import * as nearAPI from 'near-api-js';
 import getConfig from './config'
-import { v4 as uuid4 } from "uuid";
 
 
 const nearConfig = getConfig(process.env.NODE_ENV || 'development')
@@ -40,27 +39,32 @@ export function login() {
   window.walletConnection.requestSignIn(nearConfig.contractName)
 }
 
+//to get all movies that saved previously.
 export function getAllMovies() {
   return window.contract.getAllMovies();
 }
 
+//to add movie
 export function addMovie(title, poster_path, overview) {
   return window.contract.addMovie({title, poster_path, overview});
 }
 
+//to get all donations that saved previously 
 export function getAllDonations() {
   return window.contract.getAllDonations();
 }
 
+//to get movie by id 
 export function getMovieById(id){
   return window.contract.getMovieById({id});
 }
 
+//to get donate by id
 export function getDonationsByMovieId(id) {
   return window.contract.getDonationsByMovieId({id});
 }
 
-
+//to donate to a movie 
 export const donateMovie = async (id, donateAmount) => {
   const gas = 30_000_000_000_000;
   const depositInYoctoNEAR = nearAPI.utils.format.parseNearAmount(donateAmount);

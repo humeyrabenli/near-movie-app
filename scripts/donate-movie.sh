@@ -16,7 +16,7 @@ echo "You entered $deposit"
 echo
 echo --------------------------------------------
 echo 
-echo "Calling buyBook function"
+echo "Calling donateMovie function"
 echo
 
 near call $CONTRACT donateMovie '{"id": '$id'}' --accountId $OWNER --deposit $deposit

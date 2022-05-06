@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getMovieById, donateMovie, getAllDonations } from "../utils";
 import { utils } from "near-api-js";
-
 import {
   FormGroup,
   FormLabel,
@@ -14,21 +13,20 @@ import {
 const MovieDetail = () => {
   const [loading, setLoading] = useState(false);
   const [donateAmount, setDonateAmount] = useState("");
-  const isFormFilled = () => donateAmount;
-  let array = [];
-  let res = 0;
   const [movie, setMovie] = useState({});
   const [donations, setDonations] = useState([]);
-  const [donates, setDonates] = useState([]);
+  let res = 0;
+
 
   const { id } = useParams();
   const newvalue = parseInt(id);
+
+  //to get movie by movie id 
   const getMovie = () => {
     try {
       console.log(newvalue);
       setLoading(true);
       getMovieById(newvalue).then((res) => {
-        console.log("getmoviebyid", newvalue);
         setMovie(res);
       });
     } catch (error) {
@@ -37,6 +35,8 @@ const MovieDetail = () => {
       setLoading(false);
     }
   };
+
+  //to get all donations 
   const getDonations = () => {
     try {
       setLoading(true);
@@ -50,20 +50,15 @@ const MovieDetail = () => {
     }
   };
 
-  const dnt = donations.filter(function (el) {
-    return el.id === newvalue;
-  });
-
   useEffect(() => {
     getMovie();
     getDonations();
   }, [newvalue]);
 
+  //to donate to a movie 
   const donate = async () => {
     try {
-      donateMovie(newvalue, donateAmount).then((resp) => {
-        console.log("donatemovie", newvalue);
-      });
+      donateMovie(newvalue, donateAmount).then((resp) => {});
     } catch (error) {
       console.log(error);
     } finally {
@@ -117,40 +112,33 @@ const MovieDetail = () => {
             </div>
             <br />
             <div className="row">
-                <div className="col-6">
+              <div className="col-6">
                 <h5>All Donations</h5>
-                {donations.map(function (donate,i) {
-                return (
-                  <p key={i}>
-                    {donate.id === newvalue
-                      ? donate.donater +
-                        "  " +
-                        utils.format.formatNearAmount(donate.donateAmount) +
-                        " NEAR"
-                      : null}
-                  </p>
-                );
-              })}
-              {donations.map(function (donate) {
-                if (donate.id === newvalue) {
-                  res += parseFloat(
-                    utils.format.formatNearAmount(donate.donateAmount)
+                {donations.map(function (donate, i) {
+                  return (
+                    <p key={i}>
+                      {donate.id === newvalue
+                        ? donate.donater +
+                          "  " +
+                          utils.format.formatNearAmount(donate.donateAmount) +
+                          " NEAR"
+                        : null}
+                    </p>
                   );
-                }
-              })}
-                </div>
-                <div className="col-6">
-                   <h5>Total Donate Amount</h5>
-                   <p>{res} NEAR</p>
-                </div>
-            
+                })}
+                {donations.map(function (donate) {
+                  if (donate.id === newvalue) {
+                    res += parseFloat(
+                      utils.format.formatNearAmount(donate.donateAmount)
+                    );
+                  }
+                })}
+              </div>
+              <div className="col-6">
+                <h5>Total Donate Amount</h5>
+                <p>{res} NEAR</p>
+              </div>
             </div>
-
-            <p>{console.log(res)}</p>
-            {/*  <div className="row">
-              <div className="col-8"></div>
-              <div className="col-4"></div>
-            </div> */}
           </div>
         </div>
       </div>

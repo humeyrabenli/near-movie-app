@@ -28,7 +28,7 @@ echo --------------------------------------------
 echo 
 echo "Calling setBook function"
 
-near call $CONTRACT setBook '{"title": "'"$title"'", "poster_path": "'"$poster_path"'", "overview": "'"$overview"'"}' --accountId $OWNER
+near call $CONTRACT addMovie '{"title": "'"$title"'", "poster_path": "'"$poster_path"'", "overview": "'"$overview"'"}' --accountId $OWNER
 
 echo
 echo
