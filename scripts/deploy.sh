@@ -26,7 +26,7 @@ echo --------------------------------------------
 echo
 echo "redeploying the contract"
 echo
-near dev-deploy ./contract/build/debug/greeter.wasm
+near dev-deploy ./contract/build/release/greeter.wasm
 
 echo --------------------------------------------
 echo run the following commands
