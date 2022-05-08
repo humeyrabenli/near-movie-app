@@ -26,7 +26,7 @@ echo
 echo
 echo --------------------------------------------
 echo 
-echo "Calling setBook function"
+echo "Calling addMovie function"
 
 near call $CONTRACT addMovie '{"title": "'"$title"'", "poster_path": "'"$poster_path"'", "overview": "'"$overview"'"}' --accountId $OWNER
 
