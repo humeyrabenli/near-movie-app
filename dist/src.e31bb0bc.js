@@ -68677,7 +68677,7 @@ const Movie = _ref => {
     style: {
       float: 'right'
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, window.accountId === "" ? null : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/movie/${movie.id}`,
     className: "btn btn-sm btn-outline-secondary"
   }, "Donate"))))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Outlet, null));
@@ -68767,8 +68767,9 @@ const NewMovie = () => {
   const [poster_path, setPoster_path] = (0, _react.useState)("");
   const [overview, setOverview] = (0, _react.useState)("");
 
-  const isFormFilled = () => title && poster_path && overview; // to add movie to near protocol  
+  const isFormFilled = () => title && poster_path && overview;
 
+  const navigate = (0, _reactRouterDom.useNavigate)(); // to add movie to near protocol  
 
   const newMovie = async () => {
     try {
@@ -68827,6 +68828,7 @@ const NewMovie = () => {
     disabled: !isFormFilled(),
     onClick: () => {
       newMovie();
+      navigate("/");
     }
   }, "Add Movie"))));
 };
@@ -69085,7 +69087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54850" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58668" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

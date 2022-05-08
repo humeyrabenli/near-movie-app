@@ -13,12 +13,15 @@ const Movie = ({movie}) => {
         <h5 className="card-title">{movie.title}</h5>
         <div className="">
           <div style={{float:'right'}}>
-              <Link
-              to={`/movie/${movie.id}`}
-              className="btn btn-sm btn-outline-secondary"
-            >
-              Donate
-            </Link> 
+          {window.accountId === "" ? null :  (
+             <Link
+             to={`/movie/${movie.id}`}
+             className="btn btn-sm btn-outline-secondary"
+           >
+             Donate
+           </Link> 
+          )}
+             
           </div>
         </div>
       </div>

@@ -9,13 +9,15 @@ import {
   InputGroup,
   FloatingLabel,
 } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 
 const NewMovie = () => {
   const [title, setTitle] = useState("");
   const [poster_path, setPoster_path] = useState("");
   const [overview, setOverview] = useState("");
-
   const isFormFilled = () => title && poster_path && overview;
+  const navigate = useNavigate();
 
 
   // to add movie to near protocol  
@@ -74,6 +76,7 @@ const NewMovie = () => {
             disabled={!isFormFilled()}
             onClick={() => {
               newMovie();
+              navigate("/");
             }}
           >
             Add Movie
